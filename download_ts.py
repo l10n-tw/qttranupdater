@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+'''
 #############################################################################
 ## Qt Translations File Updater
 ##
@@ -27,6 +28,45 @@
 ##
 #############################################################################
 
+[How to translate this program?]
+The program has been set up I18N.
+
+[[Requirements]]
+- Installed `gettext-tools`
+- Installed gettext libraries.
+
+[[Step 1]]
+Please input `ls /usr/lib | grep 'python3.'`, and find the text like
+    python3.7
+    python3.6
+    python3.5
+
+And input `ls /usr/lib/(the_text_you_found)/argparse.py`, check whether
+it exists.
+
+If it exists, please input `ARGPARSE_PATH=/usr/lib/(the_text_you_found)/argparse.py`,
+it will be used in [[Step 2]].
+
+[[Step 2]]
+Input `xgettext -o kdetrantool.pot (The_filename_of_this_program[1]) $ARGPARSE_PATH`
+It will extract all the strings in this program.
+
+[1]: If you don't rename this program, it shoulds be `download_ts.py`
+
+[[Step 3]]
+Input `msginit -l (your_language[2])-i kdetrantool.pot` to make the translate file of your language,
+and translate (your_language).po!
+
+[2]: like zh_TW, zh_CN, ru, kr...
+
+[[Step 4]]
+First input `mkdir -p ./locale/(your_language)/LC_MESSAGES` to make locale directory
+And then input `msgfmt -co ./locale/(your_language)/LC_MESSAGES/kdetrantool.mo (your_language).po`
+It will output the human-readable po file to a program-readable mo file.
+
+[[Step 5]]
+Restart program to apply translations.
+'''
 '''Imports'''
 import urllib.request as urlReqFunc
 import sys
@@ -115,7 +155,7 @@ argv.add_argument("--clean-tags", action="store_true", dest="cleanTags",
     help=_("Remove <location> tags in ts files.\nPlease use this before pushing your changes to the repository."))
 argv.add_argument("--no-backups", action="store_false", dest="backup",
     help=_("Don't backup translate file before merging. (NOT RECOMMENDED!)"))
-  
+
 def downObj(url):
   '''
   It will call urllib to download
