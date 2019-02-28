@@ -27,57 +27,6 @@
 ## $QT_END_LICENSE$
 ##
 #############################################################################
-'''
-[How to translate this program?]
-The program already does I18N, you can translate this program easily.
-The tutorial will teach you how to translate.
-
-[[Requirement]]
-- Installed Python 3 or newer version.
-- Installed gettext libraries and gettext-tools.
-
-[[Step 1]]
-Please input `python3 -V` to check the Python 3 version.
-It will output something like:
-    Python 3.7.2
-Let's assume this text as FirstString.
-
-And input `ls /usr/lib | grep -e '^python3.'`, find the output like
-    python3.7
-Let's assume this output as SecondString.
-
-If the FirstString is like `Python 3.7.2`, the SecondString shoulds be
-`python3.7`, another example, if the FirstString is like `Python 3.5.0`,
-the SecondString shoulds be `python3.5`.
-
-And then, input `ls /usr/lib/(SecondString)/argparse.py` to check whether
-the 'argparse' module exists.
-
-If it exists, please input `ARGPARSE_PATH=/usr/lib/(SecondString)/argparse.py`
-to create a variable which includes the link to the file.
-
-[[Step 2]]
-Input `xgettext -o qttranupdater.pot (The_filename_of_this_program[1]) $ARGPARSE_PATH`
-It will extract all the strings in this program and the `argparse' library.
-
-[1]: If you didn't rename this program, it shoulds be `download_ts.py`
-
-[[Step 3]]
-Input `msginit -l (your_language[2]) -i qttranupdater.pot` to
-make the human-readable translate file of your language.
-
-After doing those, translate (your_language).po!
-
-[2]: like zh_TW, zh_CN, ru, kr...
-
-[[Step 4]]
-First input `mkdir -p ./locale/(your_language)/LC_MESSAGES` to make the locale directory
-And then input `msgfmt -co ./locale/(your_language)/LC_MESSAGES/qttranupdater.mo (your_language).po`
-It will output the human-readable po file to a program-readable mo file.
-
-[[Step 5]]
-Restart program to apply translations.
-'''
 
 '''Imports'''
 import urllib.request as urlReqFunc
