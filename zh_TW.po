@@ -1,0 +1,316 @@
+# Chinese translations for pan package.
+# Copyright (C) 2019 THE pan'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the pan package.
+#
+#  <pan93412@gmail.com>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: pan 93412\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-28 11:43+0800\n"
+"PO-Revision-Date: 2019-02-28 11:53+0800\n"
+"Last-Translator: pan93412 <pan93412@gmail.com>\n"
+"Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 18.12.2\n"
+
+#: download_ts.py:82
+msgid ""
+"The tool can make updating TS file more convenient.\n"
+"It will fetch the latest daily updated template file from\n"
+"http://l10n-files.qt.io, and auto merge the template with\n"
+"your ts file."
+msgstr ""
+"此工具可以讓更新 TS 檔更加方便。\n"
+"其會從 http://l10n-files.qt.io 抓取最新的每日更新範本檔，\n"
+"並自動合併範本檔到您的 ts 檔。"
+
+#: download_ts.py:90
+msgid ""
+"e.g: qtbase, qtscript, assistant, designer...\n"
+"\n"
+"If you don't know what component you want to merge, or\n"
+"you just want to merge all components, just use\n"
+"'all'."
+msgstr ""
+"範例：qtbase、qtscript、assistant、designer…\n"
+"\n"
+"若您不知道要合併哪個元件，或者您只打算合併所有元件，\n"
+"請使用「all」。"
+
+#: download_ts.py:97
+msgid ""
+"e.g: zh_TW, zh_CN, ar, ko, pl...\n"
+"\n"
+"The target language to merge."
+msgstr ""
+"例如：zh_TW、zh_CN、ar、ko、pl…\n"
+"\n"
+"要合併的目標語言。"
+
+#: download_ts.py:104
+msgid "branch_name"
+msgstr "分支"
+
+#: download_ts.py:105
+msgid ""
+"e.g: qt5-current, qt5-stable...\n"
+"\n"
+"It isn't needed to specify it; the program will ask\n"
+"you what branch you want to merge."
+msgstr ""
+"範例：qt5-current、qt5-stable…\n"
+"\n"
+"您不需指定分支；程式將詢問您要合併的分支。"
+
+#: download_ts.py:112
+msgid "Don't merge the translation file, just download the template file."
+msgstr "請勿合併翻譯檔案，只需下載範本檔案。"
+
+#: download_ts.py:114
+msgid ""
+"Remove <location> tags in ts files.\n"
+"Please use this before pushing your changes to the repository."
+msgstr ""
+"從 ts 檔案移除 <location> 標籤。\n"
+"請在推送變更到版本庫前使用此功能。"
+
+#: download_ts.py:131
+#, python-brace-format
+#| msgid ""
+#| " Something wrong!\n"
+#| "\n"
+#| "The reason why the tool can't work properly:\n"
+#| "  1) No internet connection.\n"
+#| "  2) This connection was blocked by your\n"
+#| "     country or the server.\n"
+#| "  3) URL Wrong: {url}\n"
+#| "\n"
+#| "If all looks normal but you still can't use this\n"
+#| "tool, please report this error to:\n"
+#| "    pan93412@gmail.com\n"
+#| "\n"
+#| "and attach this error:\n"
+#| "    {str(sys.exc_info())}\n"
+#| "\n"
+#| "Authors will reply you as soon as possible. :) \n"
+msgid ""
+" Something wrong!\n"
+"\n"
+"The reason why the tool can't work properly:\n"
+"  1) No internet connection.\n"
+"  2) This connection was blocked by your\n"
+"     country or the server.\n"
+"  3) URL Wrong: {url}\n"
+"\n"
+"If all looks normal but you still can't use this\n"
+"tool, please report this error to:\n"
+"    pan93412@gmail.com\n"
+"\n"
+"and attach this error:\n"
+"    {exceptInfo}\n"
+"\n"
+"Authors will reply you as soon as possible. :) \n"
+msgstr ""
+" 發生錯誤！\n"
+"\n"
+"工具無法正常運作的原因：\n"
+"  1) 無網路連線。\n"
+"  2) 連線被您所在國家或伺服器阻斷。\n"
+"  3) 網址錯誤：{url}\n"
+"\n"
+"若以上看起來都很正常但卻無法使用此工具，\n"
+"請回報此錯誤到：\n"
+"    pan93412@gmail.com\n"
+"\n"
+"並附加此錯誤資訊：\n"
+"    {exceptInfo}\n"
+"\n"
+"作者將盡早回覆您。:)\n"
+
+#: download_ts.py:159
+#, python-brace-format
+msgid "Downloading {description}... "
+msgstr "正在下載 {description}…"
+
+#: download_ts.py:171 download_ts.py:215
+msgid "Success."
+msgstr "成功。"
+
+#: download_ts.py:195
+#, python-brace-format
+msgid "Merging: {langFile}... "
+msgstr "正在合併：{langFile}..."
+
+#: download_ts.py:279
+msgid "BranchName\tBranchID"
+msgstr "分支名稱\t分支 ID"
+
+#: download_ts.py:285
+msgid "Please input the BranchID that you want to merge: "
+msgstr "請輸入欲合併的分支 ID："
+
+#: download_ts.py:291
+#, python-brace-format
+msgid "BranchID invaild: {userBranch}\n"
+msgstr "分支 ID 無效：{userBranch}\n"
+
+#: download_ts.py:329 download_ts.py:333
+#, python-brace-format
+msgid "The template of {comp}"
+msgstr "{comp} 的範本"
+
+#: /usr/lib/python3.7/argparse.py:297
+msgid "usage: "
+msgstr "用法："
+
+#: /usr/lib/python3.7/argparse.py:839
+msgid ".__call__() not defined"
+msgstr "未定義 .__call__()"
+
+#: /usr/lib/python3.7/argparse.py:1142
+#, python-format
+msgid "unknown parser %(parser_name)r (choices: %(choices)s)"
+msgstr "未知解析器 %(parser_name)r（選擇：%(choices)s）"
+
+#: /usr/lib/python3.7/argparse.py:1196
+#, python-format
+msgid "argument \"-\" with mode %r"
+msgstr "使用 %r 模式的參數「-」"
+
+#: /usr/lib/python3.7/argparse.py:1204
+#, python-format
+msgid "can't open '%s': %s"
+msgstr "無法開啟「%s」：%s"
+
+#: /usr/lib/python3.7/argparse.py:1408
+#, python-format
+msgid "cannot merge actions - two groups are named %r"
+msgstr "無法合併動作 - 兩個群組皆命名為 %r"
+
+#: /usr/lib/python3.7/argparse.py:1446
+msgid "'required' is an invalid argument for positionals"
+msgstr "「required」參數對必要參數無效"
+
+#: /usr/lib/python3.7/argparse.py:1468
+#, python-format
+msgid ""
+"invalid option string %(option)r: must start with a character "
+"%(prefix_chars)r"
+msgstr "無效的選項字串 %(option)r：必須以字元 %(prefix_chars)r 開頭"
+
+#: /usr/lib/python3.7/argparse.py:1488
+#, python-format
+msgid "dest= is required for options like %r"
+msgstr "對類似 %r 的選項而言，dest= 必須設定"
+
+#: /usr/lib/python3.7/argparse.py:1505
+#, python-format
+msgid "invalid conflict_resolution value: %r"
+msgstr "無效的 conflict_resolution 值：%r"
+
+#: /usr/lib/python3.7/argparse.py:1523
+#, python-format
+msgid "conflicting option string: %s"
+msgid_plural "conflicting option strings: %s"
+msgstr[0] "選項字串衝突：%s"
+
+#: /usr/lib/python3.7/argparse.py:1589
+msgid "mutually exclusive arguments must be optional"
+msgstr "相互排斥參數必須為「選用參數」"
+
+#: /usr/lib/python3.7/argparse.py:1652
+msgid "positional arguments"
+msgstr "必要參數"
+
+#: /usr/lib/python3.7/argparse.py:1653
+msgid "optional arguments"
+msgstr "選用參數"
+
+#: /usr/lib/python3.7/argparse.py:1668
+msgid "show this help message and exit"
+msgstr "顯示此說明訊息後退出"
+
+#: /usr/lib/python3.7/argparse.py:1699
+msgid "cannot have multiple subparser arguments"
+msgstr "不可包含多個 subparser 參數"
+
+#: /usr/lib/python3.7/argparse.py:1751 /usr/lib/python3.7/argparse.py:2257
+#, python-format
+msgid "unrecognized arguments: %s"
+msgstr "無法識別的參數：%s"
+
+#: /usr/lib/python3.7/argparse.py:1848
+#, python-format
+msgid "not allowed with argument %s"
+msgstr "不允許傳入參數 %s"
+
+#: /usr/lib/python3.7/argparse.py:1894 /usr/lib/python3.7/argparse.py:1908
+#, python-format
+msgid "ignored explicit argument %r"
+msgstr "已忽略明確參數 %r"
+
+#: /usr/lib/python3.7/argparse.py:2015
+#, python-format
+msgid "the following arguments are required: %s"
+msgstr "以下參數必須傳入：%s"
+
+#: /usr/lib/python3.7/argparse.py:2030
+#, python-format
+msgid "one of the arguments %s is required"
+msgstr "必須傳入 %s 參數之一"
+
+#: /usr/lib/python3.7/argparse.py:2073
+msgid "expected one argument"
+msgstr "期望一個參數"
+
+#: /usr/lib/python3.7/argparse.py:2074
+msgid "expected at most one argument"
+msgstr "期望最多一個參數"
+
+#: /usr/lib/python3.7/argparse.py:2075
+msgid "expected at least one argument"
+msgstr "期望最少一個參數"
+
+#: /usr/lib/python3.7/argparse.py:2077
+#, python-format
+msgid "expected %s argument"
+msgid_plural "expected %s arguments"
+msgstr[0] "期望有 %s 參數"
+
+#: /usr/lib/python3.7/argparse.py:2137
+#, python-format
+msgid "ambiguous option: %(option)s could match %(matches)s"
+msgstr "選項不明確：%(option)s 也能與 %(matches)s 配合使用"
+
+#: /usr/lib/python3.7/argparse.py:2200
+#, python-format
+msgid "unexpected option string: %s"
+msgstr "非期望的選項字串：%s"
+
+#: /usr/lib/python3.7/argparse.py:2397
+#, python-format
+msgid "%r is not callable"
+msgstr "%r 無法被呼叫"
+
+#: /usr/lib/python3.7/argparse.py:2414
+#, python-format
+msgid "invalid %(type)s value: %(value)r"
+msgstr "無效的 %(type)s 值：%(value)r"
+
+#: /usr/lib/python3.7/argparse.py:2425
+#, python-format
+msgid "invalid choice: %(value)r (choose from %(choices)s)"
+msgstr "選擇無效：%(value)r（從 %(choices)s 選擇）"
+
+#: /usr/lib/python3.7/argparse.py:2501
+#, python-format
+msgid "%(prog)s: error: %(message)s\n"
+msgstr "%(prog)s：錯誤：%(message)s\n"
+
+#~ msgid "The template of {argList.component_name}"
+#~ msgstr "{argList.component_name} 的範本"
