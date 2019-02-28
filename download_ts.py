@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-'''
 #############################################################################
 ## Qt Translations File Updater
 ##
 ## Copyright (C) 2019 Yi-Jyun Pan <pan93412@gmail.com>
+##               2019 Oswald Buddenhagen <oswald.buddenhagen@gmx.de>
 ##
 ## This file is part of the translations module of the Qt Toolkit.
 ##
@@ -27,46 +27,58 @@
 ## $QT_END_LICENSE$
 ##
 #############################################################################
-
+'''
 [How to translate this program?]
-The program has been set up I18N.
+The program already does I18N, you can translate this program easily.
+The tutorial will teach you how to translate.
 
-[[Requirements]]
-- Installed `gettext-tools`
-- Installed gettext libraries.
+[[Requirement]]
+- Installed Python 3 or newer version.
+- Installed gettext libraries and gettext-tools.
 
 [[Step 1]]
-Please input `ls /usr/lib | grep 'python3.'`, and find the text like
+Please input `python3 -V` to check the Python 3 version.
+It will output something like:
+    Python 3.7.2
+Let's assume this text as FirstString.
+
+And input `ls /usr/lib | grep -e '^python3.'`, find the output like
     python3.7
-    python3.6
-    python3.5
+Let's assume this output as SecondString.
 
-And input `ls /usr/lib/(the_text_you_found)/argparse.py`, check whether
-it exists.
+If the FirstString is like `Python 3.7.2`, the SecondString shoulds be
+`python3.7`, another example, if the FirstString is like `Python 3.5.0`,
+the SecondString shoulds be `python3.5`.
 
-If it exists, please input `ARGPARSE_PATH=/usr/lib/(the_text_you_found)/argparse.py`,
-it will be used in [[Step 2]].
+And then, input `ls /usr/lib/(SecondString)/argparse.py` to check whether
+the 'argparse' module exists.
+
+If it exists, please input `ARGPARSE_PATH=/usr/lib/(SecondString)/argparse.py`
+to create a variable which includes the link to the file.
 
 [[Step 2]]
-Input `xgettext -o kdetrantool.pot (The_filename_of_this_program[1]) $ARGPARSE_PATH`
-It will extract all the strings in this program.
+Input `xgettext -o qttranupdater.pot (The_filename_of_this_program[1]) $ARGPARSE_PATH`
+It will extract all the strings in this program and the `argparse' library.
 
-[1]: If you don't rename this program, it shoulds be `download_ts.py`
+[1]: If you didn't rename this program, it shoulds be `download_ts.py`
 
 [[Step 3]]
-Input `msginit -l (your_language[2])-i kdetrantool.pot` to make the translate file of your language,
-and translate (your_language).po!
+Input `msginit -l (your_language[2]) -i qttranupdater.pot` to
+make the human-readable translate file of your language.
+
+After doing those, translate (your_language).po!
 
 [2]: like zh_TW, zh_CN, ru, kr...
 
 [[Step 4]]
-First input `mkdir -p ./locale/(your_language)/LC_MESSAGES` to make locale directory
-And then input `msgfmt -co ./locale/(your_language)/LC_MESSAGES/kdetrantool.mo (your_language).po`
+First input `mkdir -p ./locale/(your_language)/LC_MESSAGES` to make the locale directory
+And then input `msgfmt -co ./locale/(your_language)/LC_MESSAGES/qttranupdater.mo (your_language).po`
 It will output the human-readable po file to a program-readable mo file.
 
 [[Step 5]]
 Restart program to apply translations.
 '''
+
 '''Imports'''
 import urllib.request as urlReqFunc
 import sys
@@ -80,7 +92,7 @@ import shutil
 '''Consts'''
 downloadURL = "http://l10n-files.qt.io/l10n-files/{branch_name}/"
 
-# The file with branch info. If you can't access this file, 
+# The file with branch info. If you can't access this file,
 # please contact `ossi` at IRC.
 branchMap = "http://l10n-files.qt.io/l10n-files/branch-map.txt"
 
@@ -90,7 +102,7 @@ filenameFormat = "{component}_{langcode}.ts"
 
 # The untranslated filename. It will apply to
 # {langcode} in filenameFormat.
-untranslatedFilename = "untranslated" 
+untranslatedFilename = "untranslated"
 
 # The merge command. It requires install `linguist` first.
 # * (fn = filename)
@@ -98,7 +110,7 @@ mergeCmd = "lconvert {extraTag} -no-obsolete -target-language {targetLang} -i {t
 
 # The path to save language files (mo) for this program.
 # When you set it up, please copy the mo file to
-# localePath/(your_language_code)/LC_MESSAGES/kdetrantool.mo
+# localePath/(your_language_code)/LC_MESSAGES/qttranupdater.mo
 localePath = "./locale"
 
 # Edit it and make a Merge Request if something changed.
@@ -114,8 +126,8 @@ compList = [
 ]
 
 '''Set up gettext'''
-gettext.bindtextdomain("kdetrantool", localePath)
-gettext.textdomain("kdetrantool")
+gettext.bindtextdomain("qttranupdater", localePath)
+gettext.textdomain("qttranupdater")
 _ = gettext.gettext
 
 '''Arguments'''
@@ -124,6 +136,7 @@ argv = arg.ArgumentParser(
 It will fetch the latest daily updated template file from
 http://l10n-files.qt.io, and auto merge the template with
 your ts file."""),
+    epilog=_("Read https://wiki.qt.io/Qt_Localization for the information about how to translate."),
     formatter_class=arg.RawTextHelpFormatter
 )
 
@@ -161,7 +174,7 @@ def downObj(url):
   It will call urllib to download
   the specified file and return
   the RAW file object.
-  
+
   We recommend you to use downFile() which
   will download the file to target directory,
   this function is low-level.
@@ -186,7 +199,7 @@ tool, please report this error to:
 and attach this error:
     {exceptInfo}
 
-Authors will reply you as soon as possible. :) 
+Authors will reply you as soon as possible. :)
 """).format(url=url, exceptInfo=str(sys.exc_info())))
     exit(1)
   return fileRaw
@@ -194,33 +207,33 @@ Authors will reply you as soon as possible. :)
 def downFile(url, dest, description=""):
   '''
   Download files from <url> to <dest>.
-  
+
   description (optional, default=""):
       the description of the <url>.
   [return code]: 0
   '''
   print(_("Downloading {description}... ").format(description=description), end="")
-  
+
   fileObj = downObj(url)
   destFile = open(dest, "w")
-  
+
   fileContent = fileObj.read().decode("UTF-8") # We assume the encoding of <url> is `UTF-8'
   destFile.write(fileContent)
-  
+
   fileObj.close()
   destFile.close()
 
-  # TRANSLATOR NOTE: The string is after `Downloading {description}...` 
+  # TRANSLATOR NOTE: The string is after `Downloading {description}...`
   print(_("Success."))
   return 0
 
 def mergeTS(templateFile, langFile, targetLang, destFile="", preserveLocation=True):
   '''
   Merge <langFile> with <templateFile>.
-  
+
   It is needed to install Qt Linguist 5, otherwise the merge
   process will fail.
-  
+
   templateFile (required):
       The template used for merge <langFile>
   langFile (required):
@@ -236,10 +249,10 @@ def mergeTS(templateFile, langFile, targetLang, destFile="", preserveLocation=Tr
                  otherwise return the return code lconvert returned.
   '''
   print(_("Merging: {langFile}... ").format(langFile=langFile), end="")
-  
+
   if destFile == "":
     destFile = langFile # Save to the original path.
-  
+
   lconvertProcess = subprocess.Popen(
     shlex.split(
       mergeCmd.format(
@@ -253,10 +266,10 @@ def mergeTS(templateFile, langFile, targetLang, destFile="", preserveLocation=Tr
     )
   )
   lconvertProcess.wait()
-  
-  # TRANSLATOR NOTE: The string is after `Merging: {langFile}... ` 
+
+  # TRANSLATOR NOTE: The string is after `Merging: {langFile}... `
   print(_("Success."))
-  
+
   # The normal case might return `0'.
   return lconvertProcess.returncode
 
@@ -266,10 +279,10 @@ def parseBranch(bName="", bMap=branchMap):
   in <bMap>. If <bName> not in <bMap>, the
   function also let user pick the branch
   they want to merge.
-  
+
   bName (optional, default=""):
       The branch name that user specified.
-      
+
       If <bName> not in <bMap>, that it will
       ignore the bName and let user pick the
       branch they want to merge.
@@ -291,21 +304,21 @@ def parseBranch(bName="", bMap=branchMap):
   branchesObj.close()
   branchesDict = []
   vaildBranchList = []
-  
+
   # Parse branchMap and make it structure.
   for branch in branchesRaw:
     branchInfo = branch.decode("UTF-8").split(" ")
-    
+
     if "qt" not in branchInfo[0]:
       continue
-    
+
     branchesDict.append(
       {
         "bID": f"{branchInfo[0]}-{branchInfo[2]}".replace("\n", ""), # ex. qt5-current
         "bName": f"{branchInfo[0].capitalize()[:-1]} {branchInfo[1]}".replace("\n", "") # ex. Qt 5.11
       }
     )
-    
+
     # I know I repeat the action twice times.
     # But I need to avoid too many for-loops and it is the
     # simplest way.
@@ -318,11 +331,11 @@ def parseBranch(bName="", bMap=branchMap):
       if branch["bID"] == bName:
         # Hey, it is vaild! the user gave us a correct branch! :)
         return bName
-    
+
     print(_("BranchName\tBranchID"))
     for branch in branchesDict:
       print(f"{branch['bName']}\t\t{branch['bID']}")
-    
+
     # TRANSLATOR NOTE: Please ensure the BranchID is same as
     # the above `BranchID`
     userBranch = input(_("Please input the BranchID that you want to merge: "))
@@ -339,7 +352,7 @@ def main():
   '''
   `main' is entrance of this program.
   Do not call it DIRECTLY.
-  
+
   [return code]:
     - If all successful, return 0.
     - If it has some issues, but no big deal,
@@ -350,7 +363,7 @@ def main():
     - If exception has been triggered, return 1.
   '''
   argList = argv.parse_args()
-  
+
   # BRANCH PART: If user specified `branch', it will
   # check whether `branch' is valid or not, otherwise
   # let users choose branch.
@@ -359,7 +372,7 @@ def main():
     branch = parseBranch(argList.branch)
   else:
     branch = parseBranch()
-  
+
   # DOWNLOAD PART: It will download the templates
   # of those ts files.
   # If user specified `all', then it will reversive
@@ -374,7 +387,7 @@ def main():
       untranFn = filenameFormat.format(component=argList.component_name, langcode=untranslatedFilename)
       mergeFn.update({untranFn: filenameFormat.format(component=argList.component_name, langcode=argList.language_name)})
       downFile(f"{downloadURL.format(branch_name=branch)}{untranFn}", untranFn, _("The template of {comp}").format(comp=argList.component_name))
-  
+
   # MERGE PART: It will merge the translate file with template file.
   # It will make a backup like "qtbase-zh_TW.ts~" first, and then to merge.
   for templateFn in mergeFn:

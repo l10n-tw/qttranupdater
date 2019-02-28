@@ -1,14 +1,14 @@
-# Chinese translations for pan package.
-# Copyright (C) 2019 THE pan'S COPYRIGHT HOLDER
+# Chinese translations for qttranupdater package.
+# Copyright (C) 2019 pan93412.
 # This file is distributed under the same license as the pan package.
 #
-#  <pan93412@gmail.com>, 2019.
+# pan93412 <pan93412@gmail.com>, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: pan 93412\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-28 11:43+0800\n"
-"PO-Revision-Date: 2019-02-28 11:53+0800\n"
+"Project-Id-Version: qttranupdater\n"
+"Report-Msgid-Bugs-To: pan93412@gmail.com\n"
+"POT-Creation-Date: 2019-02-28 16:33+0800\n"
+"PO-Revision-Date: 2019-02-28 16:36+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 18.12.2\n"
 
-#: download_ts.py:82
+#: download_ts.py:134
 msgid ""
 "The tool can make updating TS file more convenient.\n"
 "It will fetch the latest daily updated template file from\n"
@@ -29,7 +29,7 @@ msgstr ""
 "其會從 http://l10n-files.qt.io 抓取最新的每日更新範本檔，\n"
 "並自動合併範本檔到您的 ts 檔。"
 
-#: download_ts.py:90
+#: download_ts.py:142
 msgid ""
 "e.g: qtbase, qtscript, assistant, designer...\n"
 "\n"
@@ -42,7 +42,7 @@ msgstr ""
 "若您不知道要合併哪個元件，或者您只打算合併所有元件，\n"
 "請使用「all」。"
 
-#: download_ts.py:97
+#: download_ts.py:149
 msgid ""
 "e.g: zh_TW, zh_CN, ar, ko, pl...\n"
 "\n"
@@ -52,11 +52,11 @@ msgstr ""
 "\n"
 "要合併的目標語言。"
 
-#: download_ts.py:104
+#: download_ts.py:156
 msgid "branch_name"
 msgstr "分支"
 
-#: download_ts.py:105
+#: download_ts.py:157
 msgid ""
 "e.g: qt5-current, qt5-stable...\n"
 "\n"
@@ -67,11 +67,11 @@ msgstr ""
 "\n"
 "您不需指定分支；程式將詢問您要合併的分支。"
 
-#: download_ts.py:112
+#: download_ts.py:164
 msgid "Don't merge the translation file, just download the template file."
 msgstr "請勿合併翻譯檔案，只需下載範本檔案。"
 
-#: download_ts.py:114
+#: download_ts.py:166
 msgid ""
 "Remove <location> tags in ts files.\n"
 "Please use this before pushing your changes to the repository."
@@ -79,7 +79,11 @@ msgstr ""
 "從 ts 檔案移除 <location> 標籤。\n"
 "請在推送變更到版本庫前使用此功能。"
 
-#: download_ts.py:131
+#: download_ts.py:168
+msgid "Don't backup translate file before merging. (NOT RECOMMENDED!)"
+msgstr "請勿在合併前備份翻譯檔。（不建議！）"
+
+#: download_ts.py:185
 #, python-brace-format
 #| msgid ""
 #| " Something wrong!\n"
@@ -95,7 +99,7 @@ msgstr ""
 #| "    pan93412@gmail.com\n"
 #| "\n"
 #| "and attach this error:\n"
-#| "    {str(sys.exc_info())}\n"
+#| "    {exceptInfo}\n"
 #| "\n"
 #| "Authors will reply you as soon as possible. :) \n"
 msgid ""
@@ -114,7 +118,7 @@ msgid ""
 "and attach this error:\n"
 "    {exceptInfo}\n"
 "\n"
-"Authors will reply you as soon as possible. :) \n"
+"Authors will reply you as soon as possible. :)\n"
 msgstr ""
 " 發生錯誤！\n"
 "\n"
@@ -132,37 +136,42 @@ msgstr ""
 "\n"
 "作者將盡早回覆您。:)\n"
 
-#: download_ts.py:159
+#: download_ts.py:213
 #, python-brace-format
 msgid "Downloading {description}... "
 msgstr "正在下載 {description}…"
 
-#: download_ts.py:171 download_ts.py:215
+#: download_ts.py:225 download_ts.py:269
 msgid "Success."
 msgstr "成功。"
 
-#: download_ts.py:195
+#: download_ts.py:249
 #, python-brace-format
 msgid "Merging: {langFile}... "
 msgstr "正在合併：{langFile}..."
 
-#: download_ts.py:279
+#: download_ts.py:333
 msgid "BranchName\tBranchID"
 msgstr "分支名稱\t分支 ID"
 
-#: download_ts.py:285
+#: download_ts.py:339
 msgid "Please input the BranchID that you want to merge: "
 msgstr "請輸入欲合併的分支 ID："
 
-#: download_ts.py:291
+#: download_ts.py:345
 #, python-brace-format
 msgid "BranchID invaild: {userBranch}\n"
 msgstr "分支 ID 無效：{userBranch}\n"
 
-#: download_ts.py:329 download_ts.py:333
+#: download_ts.py:383 download_ts.py:387
 #, python-brace-format
 msgid "The template of {comp}"
 msgstr "{comp} 的範本"
+
+#: download_ts.py:401
+#, python-brace-format
+msgid "You can merge {translate_file} manually, template file: {template_file}"
+msgstr "您已可手動合併 {translate_file}，範本檔案：{template_file}"
 
 #: /usr/lib/python3.7/argparse.py:297
 msgid "usage: "

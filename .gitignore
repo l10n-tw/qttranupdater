@@ -1,5 +1,4 @@
-argparse*
-download-ts.py
-locale/
 *.ts
 *~
+*.pot
+*.mo
