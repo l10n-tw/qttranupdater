@@ -1,3 +1,5 @@
 argparse*
 download-ts.py
 locale/
+*.ts
+*~

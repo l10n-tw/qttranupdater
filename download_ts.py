@@ -35,6 +35,7 @@ import os
 import shlex  # used for subprocess.Popen()
 import argparse as arg
 import gettext # Experimental Support!
+import shutil
 
 '''Consts'''
 downloadURL = "http://l10n-files.qt.io/l10n-files/{branch_name}/"
@@ -112,6 +113,8 @@ argv.add_argument("--no-merge", action="store_false", dest="toMerge",
     help=_("Don't merge the translation file, just download the template file."))
 argv.add_argument("--clean-tags", action="store_true", dest="cleanTags",
     help=_("Remove <location> tags in ts files.\nPlease use this before pushing your changes to the repository."))
+argv.add_argument("--no-backups", action="store_false", dest="backup",
+    help=_("Don't backup translate file before merging. (NOT RECOMMENDED!)"))
   
 def downObj(url):
   '''
@@ -201,7 +204,7 @@ def mergeTS(templateFile, langFile, targetLang, destFile="", preserveLocation=Tr
     shlex.split(
       mergeCmd.format(
         # "lconvert {extraTag} -no-obsolete -target-language {targetLang} -i {template} {langFile} -o {destfn}"
-        extraTag = "--locations none" if preserveLocation else False,
+        extraTag = "--locations none" if preserveLocation else "",
         targetLang = targetLang,
         template = templateFile,
         langFile = langFile,
@@ -215,7 +218,7 @@ def mergeTS(templateFile, langFile, targetLang, destFile="", preserveLocation=Tr
   print(_("Success."))
   
   # The normal case might return `0'.
-  return return_code
+  return lconvertProcess.returncode
 
 def parseBranch(bName="", bMap=branchMap):
   '''
@@ -332,6 +335,21 @@ def main():
       mergeFn.update({untranFn: filenameFormat.format(component=argList.component_name, langcode=argList.language_name)})
       downFile(f"{downloadURL.format(branch_name=branch)}{untranFn}", untranFn, _("The template of {comp}").format(comp=argList.component_name))
   
-  print(mergeFn)
-  # MERGE PART: It will 
-main()
+  # MERGE PART: It will merge the translate file with template file.
+  # It will make a backup like "qtbase-zh_TW.ts~" first, and then to merge.
+  for templateFn in mergeFn:
+    tranFn = mergeFn[templateFn]
+    if argList.toMerge:
+      if os.path.exists(tranFn) != True or os.path.isfile(tranFn) != True:
+        shutil.copy(templateFn, tranFn)
+      else:
+        if argList.backup:
+          shutil.copy(tranFn, f"{tranFn}~")
+        mergeTS(templateFn, tranFn, argList.language_name, preserveLocation= argList.cleanTags)
+    else:
+      print(_("You can merge {translate_file} manually, template file: {template_file}").format(translate_file=tranFn, template_file=templateFn))
+
+# It also can be used for module, I have written completed
+# documentation in this program.
+if __name__ == "__main__":
+  main()
