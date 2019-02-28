@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: qttranupdater\n"
-"Report-Msgid-Bugs-To: pan93412@gmail.com\n"
-"POT-Creation-Date: 2019-02-28 16:33+0800\n"
-"PO-Revision-Date: 2019-02-28 16:36+0800\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-28 20:20+0800\n"
+"PO-Revision-Date: 2019-02-28 20:31+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 18.12.2\n"
 
-#: download_ts.py:134
+#: download_ts.py:84
 msgid ""
 "The tool can make updating TS file more convenient.\n"
 "It will fetch the latest daily updated template file from\n"
@@ -29,7 +29,13 @@ msgstr ""
 "其會從 http://l10n-files.qt.io 抓取最新的每日更新範本檔，\n"
 "並自動合併範本檔到您的 ts 檔。"
 
-#: download_ts.py:142
+#: download_ts.py:88
+msgid ""
+"Read https://wiki.qt.io/Qt_Localization for the information about how to "
+"translate."
+msgstr "閱讀 https://wiki.qt.io/Qt_Localization 取得翻譯指引。"
+
+#: download_ts.py:93
 msgid ""
 "e.g: qtbase, qtscript, assistant, designer...\n"
 "\n"
@@ -42,7 +48,7 @@ msgstr ""
 "若您不知道要合併哪個元件，或者您只打算合併所有元件，\n"
 "請使用「all」。"
 
-#: download_ts.py:149
+#: download_ts.py:100
 msgid ""
 "e.g: zh_TW, zh_CN, ar, ko, pl...\n"
 "\n"
@@ -52,11 +58,11 @@ msgstr ""
 "\n"
 "要合併的目標語言。"
 
-#: download_ts.py:156
+#: download_ts.py:107
 msgid "branch_name"
 msgstr "分支"
 
-#: download_ts.py:157
+#: download_ts.py:108
 msgid ""
 "e.g: qt5-current, qt5-stable...\n"
 "\n"
@@ -67,11 +73,11 @@ msgstr ""
 "\n"
 "您不需指定分支；程式將詢問您要合併的分支。"
 
-#: download_ts.py:164
+#: download_ts.py:115
 msgid "Don't merge the translation file, just download the template file."
 msgstr "請勿合併翻譯檔案，只需下載範本檔案。"
 
-#: download_ts.py:166
+#: download_ts.py:117
 msgid ""
 "Remove <location> tags in ts files.\n"
 "Please use this before pushing your changes to the repository."
@@ -79,29 +85,12 @@ msgstr ""
 "從 ts 檔案移除 <location> 標籤。\n"
 "請在推送變更到版本庫前使用此功能。"
 
-#: download_ts.py:168
+#: download_ts.py:119
 msgid "Don't backup translate file before merging. (NOT RECOMMENDED!)"
 msgstr "請勿在合併前備份翻譯檔。（不建議！）"
 
-#: download_ts.py:185
+#: download_ts.py:136
 #, python-brace-format
-#| msgid ""
-#| " Something wrong!\n"
-#| "\n"
-#| "The reason why the tool can't work properly:\n"
-#| "  1) No internet connection.\n"
-#| "  2) This connection was blocked by your\n"
-#| "     country or the server.\n"
-#| "  3) URL Wrong: {url}\n"
-#| "\n"
-#| "If all looks normal but you still can't use this\n"
-#| "tool, please report this error to:\n"
-#| "    pan93412@gmail.com\n"
-#| "\n"
-#| "and attach this error:\n"
-#| "    {exceptInfo}\n"
-#| "\n"
-#| "Authors will reply you as soon as possible. :) \n"
 msgid ""
 " Something wrong!\n"
 "\n"
@@ -136,41 +125,53 @@ msgstr ""
 "\n"
 "作者將盡早回覆您。:)\n"
 
-#: download_ts.py:213
+#: download_ts.py:164
 #, python-brace-format
-msgid "Downloading {description}... "
-msgstr "正在下載 {description}…"
+msgid "Downloading: {description}..."
+msgstr "正在下載：{description}…"
 
-#: download_ts.py:225 download_ts.py:269
+#: download_ts.py:176 download_ts.py:220 download_ts.py:348 download_ts.py:358
 msgid "Success."
 msgstr "成功。"
 
-#: download_ts.py:249
+#: download_ts.py:200
 #, python-brace-format
-msgid "Merging: {langFile}... "
-msgstr "正在合併：{langFile}..."
+msgid "Merging: {langFile}..."
+msgstr "正在合併：{langFile}…"
 
-#: download_ts.py:333
+#: download_ts.py:284
 msgid "BranchName\tBranchID"
 msgstr "分支名稱\t分支 ID"
 
-#: download_ts.py:339
+#: download_ts.py:290
 msgid "Please input the BranchID that you want to merge: "
 msgstr "請輸入欲合併的分支 ID："
 
-#: download_ts.py:345
+#: download_ts.py:296
 #, python-brace-format
 msgid "BranchID invaild: {userBranch}\n"
 msgstr "分支 ID 無效：{userBranch}\n"
 
-#: download_ts.py:383 download_ts.py:387
+#: download_ts.py:334 download_ts.py:338
 #, python-brace-format
 msgid "The template of {comp}"
 msgstr "{comp} 的範本"
 
-#: download_ts.py:401
+#: download_ts.py:346
 #, python-brace-format
-msgid "You can merge {translate_file} manually, template file: {template_file}"
+msgid "Creating: {translate_file}..."
+msgstr "正在建立：{translate_file}…"
+
+#: download_ts.py:356
+#, python-brace-format
+msgid "Removing: {template_file}..."
+msgstr "正在移除：{template_file}…"
+
+#: download_ts.py:360
+#, python-brace-format
+msgid ""
+"You can merge {translate_file} manually now. The template filename: "
+"{template_file}"
 msgstr "您已可手動合併 {translate_file}，範本檔案：{template_file}"
 
 #: /usr/lib/python3.7/argparse.py:297

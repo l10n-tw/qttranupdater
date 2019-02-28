@@ -161,7 +161,7 @@ def downFile(url, dest, description=""):
       the description of the <url>.
   [return code]: 0
   '''
-  print(_("Downloading {description}... ").format(description=description), end="")
+  print(_("Downloading: {description}...").format(description=description), end=" ")
 
   fileObj = downObj(url)
   destFile = open(dest, "w")
@@ -197,7 +197,7 @@ def mergeTS(templateFile, langFile, targetLang, destFile="", preserveLocation=Tr
   [return code]: 0, if no errors.
                  otherwise return the return code lconvert returned.
   '''
-  print(_("Merging: {langFile}... ").format(langFile=langFile), end="")
+  print(_("Merging: {langFile}...").format(langFile=langFile), end=" ")
 
   if destFile == "":
     destFile = langFile # Save to the original path.
@@ -343,13 +343,21 @@ def main():
     tranFn = mergeFn[templateFn]
     if argList.toMerge:
       if os.path.exists(tranFn) != True or os.path.isfile(tranFn) != True:
+        print(_("Creating: {translate_file}...").format(translate_file=tranFn), end=" ")
         shutil.copy(templateFn, tranFn)
+        print(_("Success."))
       else:
         if argList.backup:
           shutil.copy(tranFn, f"{tranFn}~")
+          
         mergeTS(templateFn, tranFn, argList.language_name, preserveLocation= argList.cleanTags)
+
+      # Remove template file
+      print(_("Removing: {template_file}...").format(template_file=templateFn), end=" ")
+      os.remove(templateFn)
+      print(_("Success."))
     else:
-      print(_("You can merge {translate_file} manually, template file: {template_file}").format(translate_file=tranFn, template_file=templateFn))
+      print(_("You can merge {translate_file} manually now. The template filename: {template_file}").format(translate_file=tranFn, template_file=templateFn))
 
 # It also can be used for module, I have written completed
 # documentation in this program.
