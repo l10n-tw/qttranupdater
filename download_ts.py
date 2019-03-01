@@ -83,6 +83,10 @@ arg = arg.ArgumentParser(
 It will fetch the latest daily updated template file from http://l10n-files.qt.io,
 and auto merge the template with your ts file.
 
+Please place the program at the directory which places ts files to merge,
+for example: "translations" directory in qttranslations repository.
+If you place the program at wrong place, it might not work properly.
+
 Read https://wiki.qt.io/Qt_Localization for the information about how to translate."""
   ),
   epilog=_("Report any bugs to <pan93412@gmail.com>."),
@@ -282,7 +286,7 @@ def parseBranch(bName="", bMap=branchMap):
   branchesRaw = branchesObj.readlines()
   branchesObj.close()
   branchesDict = []
-  vaildBranchList = []
+  validBranchList = []
 
   # Parse branchMap and make it structure.
   for branch in branchesRaw:
@@ -301,14 +305,14 @@ def parseBranch(bName="", bMap=branchMap):
     # I know I repeat the action twice times.
     # But I need to avoid too many for-loops and it is the
     # simplest way.
-    vaildBranchList.append(f"{branchInfo[0]}-{branchInfo[2]}".replace("\n", ""))
+    validBranchList.append(f"{branchInfo[0]}-{branchInfo[2]}".replace("\n", ""))
 
   # The loop let user pick branch, also it will check whether <bName>
-  # is vaild or not.
+  # is valid or not.
   while True:
     for branch in branchesDict:
       if branch["bID"] == bName:
-        # Hey, it is vaild! the user gave us a correct branch! :)
+        # Hey, it is valid! the user gave us a correct branch! :)
         return bName
 
     print(_("BranchName\tBranchID"))
@@ -319,12 +323,12 @@ def parseBranch(bName="", bMap=branchMap):
     # the above `BranchID`
     userBranch = input(_("Please input the BranchID that you want to merge: "))
 
-    if userBranch in vaildBranchList:
-      # Hey, it is vaild! the user gave us a correct branch! :)
+    if userBranch in validBranchList:
+      # Hey, it is valid! the user gave us a correct branch! :)
       return userBranch
     else:
       # Oops. Please input the correct answer. :(
-      print(_("BranchID invaild: {userBranch}\n").format(userBranch=userBranch))
+      print(_("BranchID invalid: {userBranch}\n").format(userBranch=userBranch))
       continue
 
 
