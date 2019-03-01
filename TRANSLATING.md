@@ -19,8 +19,8 @@ Otherwise read from *Step 5* ! :)
 
 > If the po file for your language in "./locale" is old, you might want to merge
   the latest source to it.
-  
-  Read from *Step 4* for the information about how to merge! :)
+>
+> Read from *Step 4* for the information about how to merge! :)
 
 ## Step 2
 Input `ARGPARSE_PATH=$(python3 ./locale/getLibraryPath.py)"/argparse.py"`
@@ -32,6 +32,10 @@ located.
 Input `xgettext -o qttranupdater.pot download_ts.py $ARGPARSE_PATH`
 
 It will extract all the strings in this program and the `argparse' library.
+
+> You also can use `genpot.sh` in locale directory to generate pot file. Please run the following command at the directory which includes **download_ts.py**!
+>
+> `bash locale/genpot.sh`
 
 ## Step 4
 ### Translating from 0

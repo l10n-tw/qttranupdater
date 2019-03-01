@@ -1,5 +1,5 @@
 # Chinese translations for qttranupdater package.
-# Copyright (C) 2019 pan93412.
+# Copyright (C) 2019 pan93412 <pan93412@gmail.com>.
 # This file is distributed under the same license as the pan package.
 #
 # pan93412 <pan93412@gmail.com>, 2019.
@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: qttranupdater\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-28 20:20+0800\n"
-"PO-Revision-Date: 2019-02-28 20:31+0800\n"
+"POT-Creation-Date: 2019-03-01 14:16+0800\n"
+"PO-Revision-Date: 2019-03-01 14:17+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
@@ -18,24 +18,27 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 18.12.2\n"
 
-#: download_ts.py:84
+#: download_ts.py:82
 msgid ""
 "The tool can make updating TS file more convenient.\n"
-"It will fetch the latest daily updated template file from\n"
-"http://l10n-files.qt.io, and auto merge the template with\n"
-"your ts file."
+"It will fetch the latest daily updated template file from http://l10n-files."
+"qt.io,\n"
+"and auto merge the template with your ts file.\n"
+"\n"
+"Read https://wiki.qt.io/Qt_Localization for the information about how to "
+"translate."
 msgstr ""
 "此工具可以讓更新 TS 檔更加方便。\n"
 "其會從 http://l10n-files.qt.io 抓取最新的每日更新範本檔，\n"
-"並自動合併範本檔到您的 ts 檔。"
+"並自動合併範本檔到您的 ts 檔。\n"
+"\n"
+"閱讀 https://wiki.qt.io/Qt_Localization 取得翻譯指引。"
 
 #: download_ts.py:88
-msgid ""
-"Read https://wiki.qt.io/Qt_Localization for the information about how to "
-"translate."
-msgstr "閱讀 https://wiki.qt.io/Qt_Localization 取得翻譯指引。"
+msgid "Report any bugs to <pan93412@gmail.com>."
+msgstr "請回報臭蟲到 <pan93412@gmail.com>。"
 
-#: download_ts.py:93
+#: download_ts.py:96
 msgid ""
 "e.g: qtbase, qtscript, assistant, designer...\n"
 "\n"
@@ -48,7 +51,7 @@ msgstr ""
 "若您不知道要合併哪個元件，或者您只打算合併所有元件，\n"
 "請使用「all」。"
 
-#: download_ts.py:100
+#: download_ts.py:106
 msgid ""
 "e.g: zh_TW, zh_CN, ar, ko, pl...\n"
 "\n"
@@ -58,11 +61,11 @@ msgstr ""
 "\n"
 "要合併的目標語言。"
 
-#: download_ts.py:107
+#: download_ts.py:117
 msgid "branch_name"
 msgstr "分支"
 
-#: download_ts.py:108
+#: download_ts.py:118
 msgid ""
 "e.g: qt5-current, qt5-stable...\n"
 "\n"
@@ -73,11 +76,11 @@ msgstr ""
 "\n"
 "您不需指定分支；程式將詢問您要合併的分支。"
 
-#: download_ts.py:115
+#: download_ts.py:128
 msgid "Don't merge the translation file, just download the template file."
 msgstr "請勿合併翻譯檔案，只需下載範本檔案。"
 
-#: download_ts.py:117
+#: download_ts.py:135
 msgid ""
 "Remove <location> tags in ts files.\n"
 "Please use this before pushing your changes to the repository."
@@ -85,14 +88,14 @@ msgstr ""
 "從 ts 檔案移除 <location> 標籤。\n"
 "請在推送變更到版本庫前使用此功能。"
 
-#: download_ts.py:119
+#: download_ts.py:142
 msgid "Don't backup translate file before merging. (NOT RECOMMENDED!)"
 msgstr "請勿在合併前備份翻譯檔。（不建議！）"
 
-#: download_ts.py:136
+#: download_ts.py:160
 #, python-brace-format
 msgid ""
-" Something wrong!\n"
+"Something wrong!\n"
 "\n"
 "The reason why the tool can't work properly:\n"
 "  1) No internet connection.\n"
@@ -109,7 +112,7 @@ msgid ""
 "\n"
 "Authors will reply you as soon as possible. :)\n"
 msgstr ""
-" 發生錯誤！\n"
+"發生錯誤！\n"
 "\n"
 "工具無法正常運作的原因：\n"
 "  1) 無網路連線。\n"
@@ -125,49 +128,49 @@ msgstr ""
 "\n"
 "作者將盡早回覆您。:)\n"
 
-#: download_ts.py:164
+#: download_ts.py:195
 #, python-brace-format
 msgid "Downloading: {description}..."
 msgstr "正在下載：{description}…"
 
-#: download_ts.py:176 download_ts.py:220 download_ts.py:348 download_ts.py:358
+#: download_ts.py:207 download_ts.py:251 download_ts.py:382 download_ts.py:392
 msgid "Success."
 msgstr "成功。"
 
-#: download_ts.py:200
+#: download_ts.py:231
 #, python-brace-format
 msgid "Merging: {langFile}..."
 msgstr "正在合併：{langFile}…"
 
-#: download_ts.py:284
+#: download_ts.py:315
 msgid "BranchName\tBranchID"
 msgstr "分支名稱\t分支 ID"
 
-#: download_ts.py:290
+#: download_ts.py:321
 msgid "Please input the BranchID that you want to merge: "
 msgstr "請輸入欲合併的分支 ID："
 
-#: download_ts.py:296
+#: download_ts.py:328
 #, python-brace-format
 msgid "BranchID invaild: {userBranch}\n"
 msgstr "分支 ID 無效：{userBranch}\n"
 
-#: download_ts.py:334 download_ts.py:338
+#: download_ts.py:367 download_ts.py:372
 #, python-brace-format
 msgid "The template of {comp}"
 msgstr "{comp} 的範本"
 
-#: download_ts.py:346
+#: download_ts.py:380
 #, python-brace-format
 msgid "Creating: {translate_file}..."
 msgstr "正在建立：{translate_file}…"
 
-#: download_ts.py:356
+#: download_ts.py:390
 #, python-brace-format
 msgid "Removing: {template_file}..."
 msgstr "正在移除：{template_file}…"
 
-#: download_ts.py:360
+#: download_ts.py:394
 #, python-brace-format
 msgid ""
 "You can merge {translate_file} manually now. The template filename: "
@@ -321,6 +324,3 @@ msgstr "選擇無效：%(value)r（從 %(choices)s 選擇）"
 #, python-format
 msgid "%(prog)s: error: %(message)s\n"
 msgstr "%(prog)s：錯誤：%(message)s\n"
-
-#~ msgid "The template of {argList.component_name}"
-#~ msgstr "{argList.component_name} 的範本"
