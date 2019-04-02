@@ -1,4 +1,9 @@
 # Qt Translations File Updater
+## WARNING
+The further updates will be updated on [Qt Code Review #247698](https://codereview.qt-project.org/#/c/247698/),
+I will not push further update here.
+
+## Usage
 Copy `download_ts.py` and `locale` directory to the path where ts files located.
 
 ## Translating
